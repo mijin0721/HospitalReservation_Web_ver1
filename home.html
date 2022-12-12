@@ -6,21 +6,23 @@
     <title>병원예약 플렛폼</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
+
   <body>
-    <div class="fixed-top">
+
+    <header>
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%A1%9C%EA%B3%A0.png?raw=true" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                병원예약 플렛폼
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="/">
+            <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%A1%9C%EA%B3%A0.png?raw=true" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            병원예약 플렛폼
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/hospital">병원보기</a>
+                <a class="nav-link active" aria-current="page" href="/hospital">병원찾기</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/reservation">예약하기</a>
@@ -29,92 +31,54 @@
                 <a class="nav-link" href="/res_confirm">예약확인하기</a>
               </li>
             </ul>
+            <div class="text-end">
+              <button type="button" class="btn btn-light text-dark me-2" onclick="location.href='/login' ">로그인</button>
+              <button type="button" class="btn btn-primary" onclick="location.href='/signup' ">회원가입</button>
+            </div>
           </div>
         </div>
       </nav>
-    </div>
+    </header>
 
-    <div class="container-xxl">
-      <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%B0%B0%EB%84%88.jpg?raw=true"  width="1700" class="img-fluid" alt="...">
-    </div>
+    <main>
 
-      
+      <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%B0%B0%EB%84%88.jpg?raw=true" class="d-block w-100" alt="...">
 
-      <div class="container" >
-        <div class="ratio" style="--bs-aspect-ratio: 20%;">
-          <from>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <label for="exampleInputPassword1" class="form-label">성명</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="col">
-                  <label for="exampleInputPassword1" class="form-label">전화번호</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="col">
-                  <label for="exampleInputPassword1" class="form-label">주민번호</label>
-                  <div class="input-group flex-nowrap">
-                    <input type="text" class="form-control" placeholder="000000" aria-label="0000000" aria-describedby="addon-wrapping">
-                    <span class="input-group-text" id="addon-wrapping">-</span>
-                    <input type="password" class="form-control" placeholder="0000000" aria-label="0000000" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
+      <div class="container col-xl-5 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-md-10 mx-auto col-lg-10">
+            <form class="p-4 p-md-5 border rounded-3">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
               </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-5">
-                  <label for="exampleInputPassword1" class="form-label">병원이름</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="col">
-                  <label for="exampleInputPassword1" class="form-label">시</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="1">9시</option>
-                    <option value="2">10시</option>
-                    <option value="3">11시</option>
-                    <option value="4">12시</option>
-                    <option value="5">13시</option>
-                    <option value="6">14시</option>
-                    <option value="7">15시</option>
-                    <option value="8">16시</option>
-                    <option value="9">17시</option>
-                  </select>
-                </div>
-                <div class="col">
-                  <label for="exampleInputPassword1" class="form-label">분</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="1">0분</option>
-                    <option value="2">10분</option>
-                    <option value="3">20분</option>
-                    <option value="4">30분</option>
-                    <option value="5">40분</option>
-                    <option value="6">50분</option>
-                  </select>
-                </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
               </div>
-              <label for="exampleInputPassword1" class="form-label">주요증상</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">개인 정보를 수집하는 것을 동의합니다.</label>
-            </div>
-            <button type="submit" class="btn btn-primary">빠른 예약하기</button>
-          </from>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+              <hr class="my-4">
+              <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            </form>
+          </div>
         </div>
       </div>
 
+    </main>
 
-
-      <div class="fixed-bottom">
-        <div class="text-bg-secondary p-3" style="height: 80px;;">
-          <h6>오픈소스SW개발도구활용 기말과제</h6>
-          <h6>제작 : 김미진</h6>
-        </div>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">김미진 제작, 오픈소스SW개발도구활용 기말과제</span>
       </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

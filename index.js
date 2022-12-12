@@ -20,3 +20,12 @@ app.get('/reservation', function(req, res) { //예약하기
 app.get('/res_confirm', function(req, res) { //예약확인
     res.sendFile(__dirname +'/res_confirm.html')
 })
+
+app.get('/login', function(req, res) { //예약확인
+    res.sendFile(__dirname +'/hos_login.html')
+})
+
+app.get('/signup', function(req, res) { //예약확인
+    res.sendFile(__dirname +'/hos_signup.html')
+})
+
