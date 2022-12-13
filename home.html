@@ -9,7 +9,6 @@
 
   <body>
 
-    <header>
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
@@ -38,68 +37,69 @@
           </div>
         </div>
       </nav>
-    </header>
-
-    <main>
 
       <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%B0%B0%EB%84%88.jpg?raw=true" class="d-block w-100" alt="...">
+
 
       <div class="container col-xl-3 col-xxl-10 px-3">
         <div class="row align-items-center g-lg-5 py-4">
           <div class="col-md-8 mx-auto">
-            <form class="p-3 p-md-3 border rounded-3">
+            <form class="p-3 p-md-3 border rounded-3" action="/add" method="post">
               <div class="row">
                 <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                  <label for="formGroupExampleInput" class="form-label">성명</label>
+                  <input name="name" type="text" class="form-control" id="formGroupExampleInput" placeholder="홍길동">
                 </div>
                 <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                  <label for="formGroupExampleInput" class="form-label">전화번호</label>
+                  <input name="phone" type="text" class="form-control" id="formGroupExampleInput" placeholder="010-0000-0000">
                 </div>
-                <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                <div class="col-3">
+                  <label for="formGroupExampleInput" class="form-label">시</label>
+                  <select name="hour" class="form-select" aria-label="Default select example">
+                    <option selected>시</option>
+                    <option value="1">9시</option>
+                    <option value="2">10시</option>
+                    <option value="3">11시</option>
+                    <option value="4">12시</option>
+                    <option value="5">13시</option>
+                    <option value="6">14시</option>
+                    <option value="7">15시</option>
+                    <option value="8">16시</option>
+                    <option value="9">17시</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label for="formGroupExampleInput" class="form-label">분</label>
+                  <select name="minute" class="form-select" aria-label="Default select example">
+                    <option selected>분</option>
+                    <option value="1">0분</option>
+                    <option value="2">10분</option>
+                    <option value="3">20분</option>
+                    <option value="4">30분</option>
+                    <option value="5">40분</option>
+                    <option value="6">50분</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
-                <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                <div class="col-5">
+                  <label for="formGroupExampleInput" class="form-label">병원이름</label>
+                  <input name="hospital" type="text" class="form-control" id="formGroupExampleInput" placeholder="○○의원">
                 </div>
                 <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+                  <label for="formGroupExampleInput" class="form-label">증상</label>
+                  <input name="symptom" type="text" class="form-control" id="formGroupExampleInput" placeholder="머리아픔">
                 </div>
-                <div class="col">
-                  <label for="formGroupExampleInput" class="form-label">Example label</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col">
-                <label for="formGroupExampleInput" class="form-label">Example label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
               </div>
 
               <hr class="my-4">
 
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">빠른 예약하기</button>
             </form>
           </div>
         </div>
       </div>
-
-    </main>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">
