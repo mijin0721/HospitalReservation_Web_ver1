@@ -19,31 +19,31 @@ MongoClient.connect("mongodb+srv://mijin:20207140@cluster0.wagohmp.mongodb.net/?
 
 
 app.get('/', function(req, res) { //메인 웹 페이지
-    res.sendFile(__dirname +'/home.html')
+    res.sendFile(__dirname +'/html/home.html')
 })
 
 app.get('/hospital', function(req, res) { // 병원확인
-    res.sendFile(__dirname +'/hospital.html')
+    res.sendFile(__dirname +'/html/hospital.html')
 })
 
 app.get('/reservation', function(req, res) { //예약하기
-    res.sendFile(__dirname +'/reservation.html')
+    res.sendFile(__dirname +'/html/reservation.html')
 })
 
 app.get('/res_confirm', function(req, res) { //예약확인
-    res.sendFile(__dirname +'/res_confirm.html')
+    res.sendFile(__dirname +'/html/res_confirm.html')
 })
 
 app.get('/login', function(req, res) { //예약확인
-    res.sendFile(__dirname +'/hos_login.html')
+    res.sendFile(__dirname +'/html/hos_login.html')
 })
 
 app.get('/signup', function(req, res) { //예약확인
-    res.sendFile(__dirname +'/hos_signup.html')
+    res.sendFile(__dirname +'/html/hos_signup.html')
 })
 
 app.get('/logout', function(req, res) { //예약확인
-    res.sendFile(__dirname +'/home_log.html')
+    res.sendFile(__dirname +'/html/home_log.html')
 })
 
 app.post('/add', function(req, res){
@@ -52,5 +52,5 @@ app.post('/add', function(req, res){
       if(err) return console.log("error");
       console.log("save complete...");
     })
-    res.sendFile(__dirname +'/home.html')
+    res.sendFile(__dirname +'/html/home.html')
   })
