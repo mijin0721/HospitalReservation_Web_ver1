@@ -31,7 +31,7 @@ app.get('/reservation', function(req, res) { //예약하기
 })
 
 app.get('/res_confirm', function(req, res) { //예약확인
-  db.collection('reservation').find().toArray(function(err, result){
+  db.collection('small_reservation').find().toArray(function(err, result){
     console.log(result);
     res.render('list.ejs', {loginfo : result})
   })
@@ -49,11 +49,11 @@ app.get('/logout', function(req, res) {
     res.sendFile(__dirname +'/html/home_log.html')
 })
 
-app.post('/add1', function(req, res){
-    db.collection('reservation').insertOne({name: req.body.name, phone: req.body.phone, hour: req.body.hour, 
+app.post('/add/small_reservation', function(req, res){
+    db.collection('small_reservation').insertOne({name: req.body.name, phone: req.body.phone, hour: req.body.hour, 
     minute: req.body.minute, hospital: req.body.hospital, symptom: req.body.symptom}, function(err, result){
       if(err) return console.log("error");
-      console.log("reservation save complete...");
+      console.log("small_reservation save complete...");
     })
     res.sendFile(__dirname +'/html/home.html')
   })
@@ -66,9 +66,11 @@ app.post('/add2', function(req, res){
   res.sendFile(__dirname +'/html/home.html')
 })
 
-//app.get('/list', function(req, res) {
-//  db.collection('reservation').find().toArray(function(err, result){
-//    console.log(result);
-//    res.render('list.ejs', {loginfo : result})
-//  })
-//})
+app.post('/add/signup', function(req, res){
+  db.collection('signup').insertOne({name: req.body.name, phone: req.body.phone, ID: req.body.ID, 
+    PW: req.body.PW, address: req.body.address, people: req.body.people}, function(err, result){
+    if(err) return console.log("error");
+    console.log("signup save complete...");
+  })
+  res.sendFile(__dirname +'/html/home.html')
+})
