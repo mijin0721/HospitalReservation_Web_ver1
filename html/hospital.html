@@ -11,26 +11,31 @@
       #map {
         height: 400px;
         /* The height is 400 pixels */
-        width: 50%;
+        width: 100%;
         /* The width is the width of the web page */
       }
     </style>
     <script>
       // Initialize and add the map
       function initMap() {
-        // The location of Uluru
-        const uluru = { lat:  37.6132113197367, lng: 127.09854004628151}; //lat=y, lng=x
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 17,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: { lat: 37.5407622, lng: 127.0706095 },
+      });
+
+      for (var i = 0; i < locations.length; i++) {
+          var marker = new google.maps.Marker({
+              map: map,
+              label: locations[i].place,
+              position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+          });
       }
+      }
+      const locations = [
+      { place:"건대입구역", lat: 37.539922, lng: 127.070609 },
+      { place:"어린이대공원역", lat: 37.547263, lng: 127.074181 },
+      ];
     </script>
   </head>
   <body>
@@ -68,14 +73,45 @@
 
     <main>
       <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%B0%B0%EB%84%88.jpg?raw=true" class="d-block w-100" alt="...">
+
+      <div class="container py-5 text-center">
+        <h4>예약 확인하기</h4>
+      </div>
+
+      <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-lg-7 text-center">
+            <div id="map"></div>  
+          </div>
+          <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-md-4 border rounded-3 bg-light">
+              <div class="form-floating mb-3">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="form-floating mb-3">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">찾기</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <div class="container py-5 text-center">
-      <h4>예약 확인하기</h4>
-    </div>
+ 
     
     <!--The div element for the map -->
-    <div id="map"></div>
+
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">

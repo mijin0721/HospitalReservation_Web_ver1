@@ -22,6 +22,10 @@ app.get('/', function(req, res) { //메인 웹 페이지
     res.sendFile(__dirname +'/html/home.html')
 })
 
+app.get('/test', function(req, res) { //메인 웹 페이지
+      res.sendFile(__dirname +'/html/test.html')
+  })
+
 app.get('/hospital', function(req, res) { // 병원확인
     res.sendFile(__dirname +'/html/hospital.html')
 })
