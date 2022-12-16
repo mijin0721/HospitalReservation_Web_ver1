@@ -22,9 +22,13 @@ app.get('/', function(req, res) { //메인 웹 페이지
     res.sendFile(__dirname +'/html/home.html')
 })
 
-app.get('/test', function(req, res) { //메인 웹 페이지
-      res.sendFile(__dirname +'/html/test.html')
+app.get('/test1', function(req, res) { //메인 웹 페이지
+      res.sendFile(__dirname +'/Login.html')
   })
+
+app.get('/test2', function(req, res) { //메인 웹 페이지
+    res.sendFile(__dirname +'/addUser.html')
+})
 
 app.get('/hospital', function(req, res) { // 병원확인
     res.sendFile(__dirname +'/html/hospital.html')
@@ -54,21 +58,13 @@ app.get('/logout', function(req, res) {
 })
 
 app.post('/add/reservation', function(req, res){
-    db.collection('reservation').insertOne({name: req.body.name, city: req.body.city, phone: req.body.phone, hour: req.body.hour, 
+    db.collection('reservation').insertOne({name: req.body.name, phone: req.body.phone, hour: req.body.hour, 
     minute: req.body.minute, hospital: req.body.hospital, symptom: req.body.symptom}, function(err, result){
       if(err) return console.log("error");
       console.log("reservation save complete...");
     })
       res.sendFile(__dirname +'/html/home.html')
   })
-
-app.post('/add2', function(req, res){
-  db.collection('login').insertOne({email: req.body.email, password:req.body.password}, function(err, result){
-    if(err) return console.log("error");
-    console.log("login save complete...");
-  })
-  res.sendFile(__dirname +'/html/home.html')
-})
 
 app.post('/add/signup', function(req, res){
   db.collection('signup').insertOne({name: req.body.name, phone: req.body.phone, ID: req.body.ID, 
@@ -78,3 +74,10 @@ app.post('/add/signup', function(req, res){
   })
   res.sendFile(__dirname +'/html/home.html')
 })
+
+app.post('/add/signin', (req, res) => {
+	db.collection('signup').findOne({ ID: req.body.ID, PW: req.body.PW }, (err, user) => {
+		if (err) return console.log("error");
+		else if (user) return res.sendFile(__dirname +'/html/home.html')
+	});
+});

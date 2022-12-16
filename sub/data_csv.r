@@ -1,8 +1,7 @@
-# 이 데이터는 공공데이터 건강보험심사평가원_병원정보서비스를 이용하여 데이터프레임을 만들었습니다.
-# https://www.data.go.kr/data/15001698/openapi.do
-
+library(jsonlite)
 library(RCurl)
 library(XML)
+library(rjson)
 
 api = "https://apis.data.go.kr/B551182/hospInfoServicev2/getHospBasisList"
 api_key = ""
@@ -30,17 +29,22 @@ xmlRoot(xmlFile)
 
 df = xmlToDataFrame(getNodeSet(xmlFile, "//items/item"))
 str(df)
+df
 
-df2 = data.frame(주소=df$addr,
-                 종별=df$clCdNm,
-                 엑스=df$XPos,
-                 와이=df$YPos,
-                 동면리=df$emdongNm,
-                 병원명=df$yadmNm)
-df2
-str(df2)
 
-df2[,3] = as.numeric(df2[,3])
-df2[,4] = as.numeric(df2[,4])
+df[,27] = as.numeric(df[,27])
+df[,28] = as.numeric(df[,28])
 
-write.csv(df2, file="C:/github/data.csv")
+df1 = data.frame(add = df$addr,
+                 type = df$clCdNm,
+                 url = df$hospUrl,
+                 phone = df$telno,
+                 X = df$XPos,
+                 Y = df$YPos,
+                 name = df$yadmNm)
+
+jsoncars <- toJSON(df1, pretty=T)
+prettify(jsoncars)
+
+write(jsoncars, file="export.JSON")
+
