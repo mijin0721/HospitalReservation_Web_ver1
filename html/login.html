@@ -1,3 +1,8 @@
+<!--
+  host : '/login'
+  tatle : 로그인 페이지
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,17 +27,17 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/hospital">병원찾기</a>
+                <a class="nav-link active" aria-current="page" href="/hospital">병원찾기</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/reservation">예약하기</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/res_confirm">예약확인하기</a>
+                <a class="nav-link" href="/confirm">예약확인하기</a>
               </li>
             </ul>
             <div class="text-end">
-              <button type="button" class="btn btn-light text-dark me-2" onclick="location.href='/login' ">로그인</button>
+              <button type="button" class="btn btn-primary" onclick="location.href='/login' ">로그인</button>
               <button type="button" class="btn btn-light text-dark me-2" onclick="location.href='/signup' ">회원가입</button>
             </div>
           </div>
@@ -43,34 +48,25 @@
     <main>
 
       <img src="https://github.com/mijin0721/hospital_reservation_Web/blob/master/image/%EB%B0%B0%EB%84%88.jpg?raw=true" class="d-block w-100" alt="...">
-      
+
       <div class="container py-5 text-center">
-        <h4>예약 확인하기</h4>
+        <h4>로그인</h4>
       </div>
 
-      <div class="container col-xl-3 col-xxl-10 px-3">
+      <div class="container col-xl-3 col-xxl-5 px-3">
         <div class="row align-items-center g-lg-5 py-4">
-          <div class="col-8 mx-auto">
-            <table class="table table-bordered text-center">
-                <thead>
-                <tr>
-                    <th scope="col"> </th>
-                    <th scope="col">병원</th>
-                    <th scope="col">예약시간</th>
-                    <th scope="col">증상</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <% for (var i = 0; i < loginfo.length; i ++) { %> 
-                        <tr>
-                            <td><%= i+1 %></td>
-                            <td><%= loginfo[i].hospital %></td>
-                            <td><%= loginfo[i].hour %> <%= loginfo[i].minute %></td>
-                            <td><%= loginfo[i].symptom %></td>
-                        </tr>
-                    <% } %> 
-                </tbody>
-            </table>
+          <div class="col-md-8 mx-auto">
+            <form class="p-3 p-md-3 border rounded-3" action="/add/login" method="post">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">아이디</label>
+                <input name="ID" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+                <input name="PW" type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <button type="submit" class="w-100 btn btn-lg btn-primary">로그인</button>
+            </form>
           </div>
         </div>
       </div>

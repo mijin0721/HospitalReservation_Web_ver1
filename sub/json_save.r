@@ -1,3 +1,5 @@
+#공공데이터를 전처리하여 json 형식으로 저장
+
 library(jsonlite)
 library(RCurl)
 library(XML)
